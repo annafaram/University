@@ -1,1 +1,33 @@
-print('Hello World')
+def bracelet(a0,b0):
+    chain = [a0,b0]
+    a = a0
+    b = b0
+    c = (a+b)%10
+    while (b,c)!=(a0,b0): # generate chain by adding previous two numbers each time, until initial values are repeated
+        chain.append(c)
+        y = (b+c)%10
+        b = c
+        c = y
+    chain.pop(-1) # remove last element of chain because it is same as first element
+    return chain
+
+bracelet15 = bracelet(1,5)
+print(f'The bracelet containing 1, 5 is:\n{bracelet15} \nand this bracelet has length {len(bracelet15)}')
+print()
+bracelet13 = bracelet(1,3)
+print(f'The bracelet containing 1, 3 is:\n{bracelet13} \nand this bracelet has length {len(bracelet13)}')
+print()
+bracelet00 = bracelet(0,0)
+print(f'The bracelet containing 0,0 is:\n{bracelet00} \nand this bracelet has length {len(bracelet00)}')
+print()
+bracelet02 = bracelet(0,2)
+print(f'The bracelet containing 0,2 is:\n{bracelet02} \nand this bracelet has length {len(bracelet02)}')
+print()
+bracelet05 = bracelet(0,5)
+print(f'The bracelet containing 0,5 is:\n{bracelet05} \nand this bracelet has length {len(bracelet05)}')
+print()
+bracelet26 = bracelet(2,6)
+print(f'The bracelet containing 2,6 is:\n{bracelet26} \nand this bracelet has length {len(bracelet26)}')
+print()
+
+print('Sum of bracelet lengths (i.e. number of starting pairs used): ', len(bracelet15)+len(bracelet13)+len(bracelet00)+len(bracelet02)+len(bracelet05)+len(bracelet26))
